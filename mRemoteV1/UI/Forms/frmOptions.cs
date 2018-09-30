@@ -68,7 +68,8 @@ namespace mRemoteNG.UI.Forms
                 {typeof(UpdatesPage).Name, new UpdatesPage()},
                 {typeof(ThemePage).Name, new ThemePage()},
                 {typeof(SecurityPage).Name, new SecurityPage()},
-                {typeof(AdvancedPage).Name, new AdvancedPage()}
+                {typeof(AdvancedPage).Name, new AdvancedPage()},
+                {typeof(ApiConnectionPage).Name, new ApiConnectionPage()}
             };
         }
 

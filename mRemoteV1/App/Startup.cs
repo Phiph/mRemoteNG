@@ -57,10 +57,18 @@ namespace mRemoteNG.App
         public void CreateConnectionsProvider(MessageCollector messageCollector)
         {
             messageCollector.AddMessage(MessageClass.DebugMsg, "Determining if we need a database syncronizer");
-            if (!Settings.Default.UseSQLServer) return;
-            messageCollector.AddMessage(MessageClass.DebugMsg, "Creating database syncronizer");
-            Runtime.ConnectionsService.RemoteConnectionsSyncronizer = new RemoteConnectionsSyncronizer(new SqlConnectionsUpdateChecker());
-            Runtime.ConnectionsService.RemoteConnectionsSyncronizer.Enable();
+            if (Settings.Default.UseSQLServer)
+            {
+                messageCollector.AddMessage(MessageClass.DebugMsg, "Creating database syncronizer");
+                Runtime.ConnectionsService.RemoteConnectionsSyncronizer = new RemoteConnectionsSyncronizer(new SqlConnectionsUpdateChecker());
+                Runtime.ConnectionsService.RemoteConnectionsSyncronizer.Enable();
+            }
+            else if (Settings.Default.UseAPI)
+            {
+                messageCollector.AddMessage(MessageClass.DebugMsg, "Creating API syncronizer");
+                Runtime.ConnectionsService.RemoteConnectionsSyncronizer = new RemoteConnectionsSyncronizer(new SqlConnectionsUpdateChecker());
+                Runtime.ConnectionsService.RemoteConnectionsSyncronizer.Enable();
+            }
         }
 
         public void CheckForUpdate()

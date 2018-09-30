@@ -518,6 +518,12 @@
     <Compile Include="UI\Forms\OptionsPages\SecurityPage.Designer.cs">
       <DependentUpon>SecurityPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\OptionsPages\ApiConnectionPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\OptionsPages\ApiConnectionPage.Designer.cs">
+      <DependentUpon>ApiConnectionPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\OptionsPages\SqlServerPage.Designer.cs">
       <DependentUpon>SqlServerPage.cs</DependentUpon>
     </Compile>
@@ -788,6 +794,9 @@
     <EmbeddedResource Include="UI\Forms\OptionsPages\SecurityPage.resx">
       <DependentUpon>SecurityPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\OptionsPages\ApiConnectionPage.resx">
+      <DependentUpon>ApiConnectionPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\PasswordForm.resx">
       <DependentUpon>PasswordForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -944,7 +953,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Firefox\omni.ja" />
     <None Include="packages.config" />
     <None Include="Resources\Themes\darcula.vstheme">
@@ -968,18 +979,7 @@
     <None Include="Schemas\mremoteng_confcons_v2_7.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Schemas\mremoteng_confcons_v2_6.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Schemas\mremoteng_credrepo_list_v1_0.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Schemas\mremoteng_creds_v1_0.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\%24this.PageIcon.ico" />
     <Content Include="Firefox\AccessibleMarshal.dll" />
     <Content Include="Firefox\breakpadinjector.dll" />
     <Content Include="Firefox\d3dcompiler_47.dll" />
@@ -999,6 +999,18 @@
     <Content Include="Firefox\sandboxbroker.dll" />
     <Content Include="Firefox\softokn3.dll" />
     <Content Include="Firefox\xul.dll" />
+    <Content Include="Schemas\mremoteng_confcons_v2_6.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Schemas\mremoteng_credrepo_list_v1_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Schemas\mremoteng_creds_v1_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Resources\Help\CMDSwitches.htm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1531,6 +1543,16 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\mRemote.Access\src\mRemote.Access.Client\mRemote.Access.Client.csproj">
+      <Project>{579113EB-D71B-44C6-840D-5450F3DE9FB8}</Project>
+      <Name>mRemote.Access.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mRemote.Access\mRemote.Access.csproj">
+      <Project>{AD3CD6AB-81F2-4767-9A8F-8B15FFE45CE1}</Project>
+      <Name>mRemote.Access</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>:: When passing paths to powershell scripts, check if the path ends with a backslash "\"
