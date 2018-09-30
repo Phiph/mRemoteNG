@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
+using mRemoteNG.Access.Events;
 using mRemoteNG.App.Info;
 using mRemoteNG.App.Initialization;
 using mRemoteNG.App.Update;
@@ -66,7 +67,7 @@ namespace mRemoteNG.App
             else if (Settings.Default.UseAPI)
             {
                 messageCollector.AddMessage(MessageClass.DebugMsg, "Creating API syncronizer");
-                Runtime.ConnectionsService.RemoteConnectionsSyncronizer = new RemoteConnectionsSyncronizer(new SqlConnectionsUpdateChecker());
+                Runtime.ConnectionsService.RemoteConnectionsSyncronizer = new RemoteConnectionsSyncronizer(new ApiConnectionsUpdateChecker());
                 Runtime.ConnectionsService.RemoteConnectionsSyncronizer.Enable();
             }
         }

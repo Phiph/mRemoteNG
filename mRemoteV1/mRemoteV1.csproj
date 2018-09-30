@@ -110,6 +110,14 @@
     <Folder Include="Credential\Records\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Access\ApiConnectionsSaver.cs" />
+    <Compile Include="Access\ApiConnectionsLoader.cs" />
+    <Compile Include="Access\API\APIService.cs" />
+    <Compile Include="Access\ApiConnectionFactory.cs" />
+    <Compile Include="Access\ApiConnectionTester.cs" />
+    <Compile Include="Access\ApiConnector.cs" />
+    <Compile Include="Access\Events\ApiConnectionsUpdateChecker.cs" />
+    <Compile Include="Access\IApiConnector.cs" />
     <Compile Include="App\CompatibilityChecker.cs" />
     <Compile Include="App\Info\GeneralAppInfo.cs" />
     <Compile Include="App\Initialization\ConnectionIconLoader.cs" />
@@ -1548,10 +1556,6 @@
     <ProjectReference Include="..\..\mRemote.Access\src\mRemote.Access.Client\mRemote.Access.Client.csproj">
       <Project>{579113EB-D71B-44C6-840D-5450F3DE9FB8}</Project>
       <Name>mRemote.Access.Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\mRemote.Access\mRemote.Access.csproj">
-      <Project>{AD3CD6AB-81F2-4767-9A8F-8B15FFE45CE1}</Project>
-      <Name>mRemote.Access</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

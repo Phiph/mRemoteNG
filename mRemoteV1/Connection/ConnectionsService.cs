@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using mRemoteNG.Access;
 using mRemoteNG.App;
 using mRemoteNG.App.Info;
 using mRemoteNG.Config.Connections;
@@ -106,9 +107,22 @@ namespace mRemoteNG.Connection
             var oldConnectionTreeModel = ConnectionTreeModel;
             var oldIsUsingDatabaseValue = UsingDatabase;
 
-            var newConnectionTreeModel = useDatabase
-                ? new SqlConnectionsLoader().Load()
-                : new XmlConnectionsLoader(connectionFileName).Load();
+            ConnectionTreeModel newConnectionTreeModel;
+            
+            if(useDatabase && Settings.Default.UseAPI)
+            {
+                newConnectionTreeModel = new ApiConnectionsLoader().Load();
+            }
+            else if (useDatabase && Settings.Default.UseSQLServer)
+            {
+                newConnectionTreeModel = new SqlConnectionsLoader().Load();
+            }
+            else
+            {
+                newConnectionTreeModel = new XmlConnectionsLoader(connectionFileName).Load();
+            }
+            
+                
 
             if (newConnectionTreeModel == null)
             {

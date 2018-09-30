@@ -17,9 +17,8 @@ namespace mRemote.Access.Tests
             _apiConnectionTester = new ApiConnectionTester();
         }
 
-
         [TestMethod]
-        public async Task TestCanILogInethod1()
+        public async Task TestCanILogIn()
         {
             //Arrange
             var tenantid = 2;
@@ -32,7 +31,7 @@ namespace mRemote.Access.Tests
 
             //Assert
             Assert.IsNotNull(connectionTestResult);
-            Assert.AreEqual(3, connectionTestResult.UserId);
+            Assert.AreEqual(3, connectionTestResult.Data.UserId);
         }
 
         [TestMethod]
@@ -48,5 +47,8 @@ namespace mRemote.Access.Tests
             Assert.AreEqual(2, connectionTestResult.TenantId);
             Assert.IsNotNull(connectionTestResult);
         }
+
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using mRemoteNG.Access;
 using mRemoteNG.Config.DatabaseConnectors;
 
 namespace mRemoteNG.Config.Connections.Multiuser
@@ -11,11 +12,21 @@ namespace mRemoteNG.Config.Connections.Multiuser
         public DateTime UpdateTime { get; private set; }
         public bool Handled { get; set; }
 
+        public IApiConnector apiconnector { get; private set; }
+
         public ConnectionsUpdateAvailableEventArgs(IDatabaseConnector databaseConnector, DateTime updateTime)
         {
             if (databaseConnector == null)
                 throw new ArgumentNullException(nameof(databaseConnector));
             DatabaseConnector = databaseConnector;
+            UpdateTime = updateTime;
+        }
+
+        public ConnectionsUpdateAvailableEventArgs(IApiConnector databaseConnector, DateTime updateTime)
+        {
+            if (databaseConnector == null)
+                throw new ArgumentNullException(nameof(databaseConnector));
+            apiconnector = databaseConnector;
             UpdateTime = updateTime;
         }
     }

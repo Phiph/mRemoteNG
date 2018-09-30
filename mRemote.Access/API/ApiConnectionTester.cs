@@ -15,7 +15,7 @@ namespace mRemote.Access.API
 
         private Configuration APIConfig { get; set; }
 
-        private mRemote.Access.Client.Client.ApiClient _apiClient { get; set; }
+        private ApiClient _apiClient { get; set; }
 
         public ApiConnectionTester(string apiUrl, int? tenantId)
         {

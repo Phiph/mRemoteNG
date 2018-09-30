@@ -128,7 +128,6 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             if (tennantcheck.TenantId.HasValue)
             {
                 _apiConnectionTester.AddTenantHeader(tennantcheck.TenantId);
-
                 btnTestConnection.Enabled = true;
 
                 try
